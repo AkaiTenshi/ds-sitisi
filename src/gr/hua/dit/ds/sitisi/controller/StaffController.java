@@ -82,7 +82,7 @@ public class StaffController {
 		}
 		
 		//City points
-		if(application.getHomeCity() != "Athens") {
+		if(application.getHomeCity().equalsIgnoreCase("Athens")) {
 			score += 50;
 		}
 		
@@ -90,7 +90,8 @@ public class StaffController {
 		score += application.getSibling() * 20;
 		
 		//Add to db
-		scoreDAO.saveScore(new ScoreEntity(application.getId(), score));
+		ScoreEntity newScore = new ScoreEntity(application.getId(), score);
+		scoreDAO.saveScore(newScore);
  		
 		return "redirect:/staff/application-approval";
 	}

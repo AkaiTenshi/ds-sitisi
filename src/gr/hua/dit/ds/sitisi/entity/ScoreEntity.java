@@ -16,10 +16,10 @@ public class ScoreEntity {
 	@Column(name = "score")
 	private int score;
 	
-	@Column(name = "aprroved")
+	@Column(name = "approved")
 	private boolean approved;
 	
-	@Column(name = "rank")
+	@Column(name = "ranking")
 	private int rank;
 
 	public ScoreEntity() {
