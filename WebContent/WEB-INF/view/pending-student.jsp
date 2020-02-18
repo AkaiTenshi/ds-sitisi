@@ -7,27 +7,26 @@
 	<div id="container">
 		<div id="content">
 			<!--  add our html table here -->
-			<table>
+			<table class="table table-striped">
 				<tr>
-					<th>ID</th>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Semester</th>
-					<th>Contact</th>
-					<th>Permission</th>
+					<th scope="col">ID</th>
+					<th scope="col">First Name</th>
+					<th scope="col">Last Name</th>
+					<th scope="col">Semester</th>
+					<th scope="col">Contact</th>
+					<th scope="col">Permission</th>
 				</tr>
-				<!-- loop over and print our customers -->
+				<!-- loop over and print our students -->
 				<c:forEach var="tempStudent" items="${students}">
 					<c:if test="${!tempStudent.canSubmit}">
 						<form:form action="saveStudent" modelAttribute="student" method="POST">
 							<tr>
-								<td>${tempStudent.id}<form:hidden path="id" value="${tempStudent.id}"></form:hidden></td>
+								<th scope="row">${tempStudent.id}<form:hidden path="id" value="${tempStudent.id}"></form:hidden></td>
 								<td>${tempStudent.firstname}<form:hidden path="firstname" value="${tempStudent.firstname}"></form:hidden></td>
 								<td>${tempStudent.lastname}<form:hidden path="lastname" value="${tempStudent.lastname}"></form:hidden></td>
 								<td>${tempStudent.semester}<form:hidden path="semester" value="${tempStudent.semester}"></form:hidden></td>
 								<td>${tempStudent.phone}<form:hidden path="phone" value="${tempStudent.phone}"></form:hidden></td>
-								<td>${tempStudent.canSubmit}<form:hidden path="canSubmit" value="${tempStudent.canSubmit}"></form:hidden></td>
-								<td><button type="submit">Grant Permission</button></td>
+								<td><button type="submit" class="btn btn-primary">Grant Permission</button></td>
 							</tr>
 						</form:form>
 					</c:if>

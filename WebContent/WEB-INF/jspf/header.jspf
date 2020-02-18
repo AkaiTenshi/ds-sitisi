@@ -12,7 +12,6 @@
 <!-- Bootstrap Imports -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <meta name="_csrf" content="${_csrf.token}"/>
 <meta name="_csrf_header" content="${_csrf.headerName}"/>
@@ -20,9 +19,7 @@
 <!-- reference our style sheet -->
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css" />
-
 <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-
 </head>
 <body>
 	<header class="navbar">

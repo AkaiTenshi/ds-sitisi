@@ -1,14 +1,12 @@
 package gr.hua.dit.ds.sitisi.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import gr.hua.dit.ds.sitisi.dao.ApplicationDAO;
 import gr.hua.dit.ds.sitisi.dao.ScoreDAO;
 import gr.hua.dit.ds.sitisi.dao.StudentDAO;
@@ -20,6 +18,7 @@ import gr.hua.dit.ds.sitisi.entity.StudentEntity;
 @RequestMapping("/staff")
 @Secured("ROLE_STAFF")
 public class StaffController {
+	
 	
 	@Autowired
 	private StudentDAO studentDAO;

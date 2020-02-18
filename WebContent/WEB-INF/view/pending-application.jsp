@@ -19,7 +19,7 @@
 				</tr>
 				</thead>
 				<tbody>
-				<!-- loop over and print our customers -->
+				<!-- loop over and print our applications -->
 				<c:forEach var="tempApplication" items="${applications}">
 					<c:if test="${!tempApplication.approved}">
 						<form:form action="saveApplication" modelAttribute="application" method="POST">
