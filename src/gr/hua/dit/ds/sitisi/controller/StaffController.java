@@ -15,7 +15,6 @@ import gr.hua.dit.ds.sitisi.entity.ScoreEntity;
 import gr.hua.dit.ds.sitisi.entity.StudentEntity;
 
 @Controller
-@RequestMapping("/staff")
 @Secured("ROLE_STAFF")
 public class StaffController {
 	
@@ -27,7 +26,7 @@ public class StaffController {
 	@Autowired
 	private ScoreDAO scoreDAO;
 
-	@RequestMapping("")
+	@RequestMapping("/")
 	public String showStaff() {
 		return "staff";
 	}	
@@ -48,7 +47,7 @@ public class StaffController {
 		student.setCanSubmit(true);
 		studentDAO.saveStudent(student);
 		
-		return "redirect:/staff/student-approval";
+		return "redirect:/student-approval";
 	}	
 	@RequestMapping("/application-approval")
 	public String showApplicationApproval(Model model) {
@@ -92,7 +91,7 @@ public class StaffController {
 		ScoreEntity newScore = new ScoreEntity(application.getId(), score);
 		scoreDAO.saveScore(newScore);
  		
-		return "redirect:/staff/application-approval";
+		return "redirect:/application-approval";
 	}
 	
 }
