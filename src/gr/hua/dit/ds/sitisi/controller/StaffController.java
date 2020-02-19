@@ -1,12 +1,17 @@
 package gr.hua.dit.ds.sitisi.controller;
 
+import java.util.Collections;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import gr.hua.dit.ds.sitisi.dao.ApplicationDAO;
 import gr.hua.dit.ds.sitisi.dao.ScoreDAO;
 import gr.hua.dit.ds.sitisi.dao.StudentDAO;
@@ -92,6 +97,29 @@ public class StaffController {
 		scoreDAO.saveScore(newScore);
  		
 		return "redirect:/application-approval";
+	}
+	
+	@PostMapping("/conclude-applications")
+	public String endApplications(@ModelAttribute("maxAllowed") int maxAllowed, Model model) {
+		List<ScoreEntity> scores = scoreDAO.getScores();
+		Collections.sort(scores, ScoreEntity.DESCENDING_COMPARATOR);
+		
+		for(int i=0; i < scores.size();i++) {
+			scores.get(i).setRank(i);
+			if(i < maxAllowed) {
+				scores.get(i).setApproved(true);
+			}
+			scoreDAO.saveScore(scores.get(i));
+		}
+		model.addAttribute(scores);
+		return "rankings";
+	}
+	
+	@GetMapping("/conclude-applications")
+	public String showConclusionForm(Model model) {
+		int maxAllowed = 0;
+		model.addAttribute(maxAllowed);
+		return "conclusion-form";
 	}
 	
 }

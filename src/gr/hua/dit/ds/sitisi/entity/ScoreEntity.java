@@ -1,5 +1,6 @@
 package gr.hua.dit.ds.sitisi.entity;
 
+import java.util.Comparator;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -21,6 +22,9 @@ public class ScoreEntity {
 	
 	@Column(name = "ranking")
 	private int rank;
+	
+	public static final Comparator<ScoreEntity> DESCENDING_COMPARATOR = 
+		    Comparator.comparing(ScoreEntity::getScore).reversed();
 
 	public ScoreEntity() {
 		
