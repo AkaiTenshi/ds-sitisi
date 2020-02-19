@@ -26,14 +26,8 @@
 	<div class="containter">
 		<nav class="navbar fixed-top navbar-light bg-light">
 			<sec:authorize access="isAuthenticated()">
-<<<<<<< HEAD
 				<a class="nav-link" href="${pageContext.request.contextPath}/application-approval" class="btn btn-link">Approve Applications</a>
 				<a class="nav-link" href="<c:url value="/student-approval"></c:url>" class="btn btn-link">Approve Students</a>		
-=======
-				<a class="nav-link" href="${pageContext.request.contextPath}application-approval" class="btn btn-link">Approve Applications</a>
-				<a class="nav-link" href="<c:url value="student-approval"></c:url>" class="btn btn-link">Approve Students</a>
-				<a class="nav-link" href="<c:url value="conlude-applications"></c:url>" class="btn btn-link">End application period</a>		
->>>>>>> refs/remotes/origin/master
 				<form action="${pageContext.request.contextPath}/logout" method="post" class="form-inline">
 				     <input type="hidden"
 			            name="${_csrf.parameterName}"
